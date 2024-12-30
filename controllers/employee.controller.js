@@ -6,5 +6,6 @@ exports.readEmployeeTodo = asyncHandler(async (req, res) => {
 })
 exports.completeEmployeeTodo = asyncHandler(async (req, res) => {
     await Todo.findByIdAndUpdate(req.params.tid, { isComplete: true })
+    io.emit("send-data", ["dell","hp"])
     res.json({ message: "todo complete success" })
 })
